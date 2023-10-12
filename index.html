@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mobile Food Facility Permit Sample</title>
+	<script src="./static/vue3.2.36.min.js"></script>
+	<script src="./static/axios-1.5.1/dist/axios.min.js"></script>
+	<link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+	<div id="food" class="foods-container flex column">
+		<div class="header">
+			<h1>Search Food:</h1>
+			<div>
+				<input v-model="search" style="margin-right: 20px;"> 
+				<button @click="searchFood(search)">Search</button>
+			</div>
+		</div>
+		<div class="flex" v-if="loaded">
+			<div class="left boder">
+			<h1>Status:</h1>
+			<div class="flex column">
+				<button style="margin-top: 10px;" @click="filter(status)" v-for="status in statuses">{{status}}</button>
+				<button style="margin-top: 20px;" @click="filter('')">Clear Status</button>
+			</div>
+		</div>
+		<div class="left boder flex-item" style="overflow: auto; height: 500px;">
+			<table class="data-table">
+				<tr>
+					<th v-for="header in tableTitle">
+						{{header}}
+					</th>
+				</tr>
+				<tr v-for="line in filterData">
+					<td v-for="header in tableTitle">
+						{{line[header]}}
+					</td>
+				</tr>
+			</table>
+		</div>
+		</div>
+	</div>
+	<script src="./static/api.js"></script>
+</body>
+
+</html>
