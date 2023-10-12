@@ -6,4 +6,5 @@ Get Foods you like
 
 # how to run it
 any php website will be ok. 
-git clone git@github.com:frankmaster/foods.git
+git clone git@github.com:frankmaster/foods.git. 
+Or check the sample on the website https://www.cvming.com/foods/index.html
