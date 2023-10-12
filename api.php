@@ -12,7 +12,7 @@ class Api {
     
     function handle() {
         $inputData = $this->getInput();
-        if($inputData['method']) {
+        if($inputData && $inputData['method']) {
             $data = $this->process($inputData);
             if($data) {
                 $this->response($data);
@@ -20,6 +20,9 @@ class Api {
                 header('HTTP/1.1 404 Not Found');
                 exit();
             }
+        } else {
+            header('HTTP/1.1 404 Not Found');
+            exit();
         }
     }
     
