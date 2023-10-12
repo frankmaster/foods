@@ -5,4 +5,5 @@ Get Foods you like
 # Vue
 
 # how to run it
-any php website will be ok. git clone
+any php website will be ok. 
+git clone git@github.com:frankmaster/foods.git
