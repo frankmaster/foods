@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="food" class="foods-container flex column">
-		<div class="header">
+		<div class="header"  v-if="loaded">
 			<h1>Search Food:</h1>
 			<div>
 				<input v-model="search" style="margin-right: 20px;"> 
@@ -39,6 +39,9 @@
 				</tr>
 			</table>
 		</div>
+		</div>
+		<div class="loading" v-if="!loaded">
+			Loading...
 		</div>
 	</div>
 	<script src="./static/api.js"></script>

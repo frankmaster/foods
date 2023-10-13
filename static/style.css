@@ -48,7 +48,7 @@ html {
 .data-table tr th {
 	position: sticky;
 	top: -6px;
-	background: white;
+	background: lightskyblue;
 	z-index: 10;
 }
 
