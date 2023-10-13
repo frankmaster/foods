@@ -14,25 +14,19 @@ class Api {
         $inputData = $this->getInput();
         if($inputData && $inputData['method']) {
             $data = $this->process($inputData);
-            if($data) {
+            if($data !== null) {
                 $this->response($data);
             } else {
-                header('HTTP/1.1 404 Not Found');
-                exit();
+                $this->exit();
             }
         } else {
-            header('HTTP/1.1 404 Not Found');
-            exit();
+            $this->exit();
         }
     }
     
     function process($param) {
-        if($param['method']== 'Status') {
-            return $this->foods->getStatus();
-        } else if($param['method'] == 'allData') {
-            return $this->foods->getAllData();
-        }else if($param['method'] == 'header') {
-            return $this->foods->getHeader();
+        if($param['method']) {
+            return call_user_func(array($this->foods, $param['method']), $param);
         }
        return null;
     }
@@ -46,6 +40,11 @@ class Api {
     function response($data) {
         header('Content-Type:application/json');
         echo json_encode($data,JSON_UNESCAPED_UNICODE);
+    }
+
+    function exit() {
+        header('HTTP/1.1 404 Not Found');
+        exit();
     }
 }
 

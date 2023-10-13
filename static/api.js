@@ -28,7 +28,7 @@ const app = Vue.createApp({
 
 		filter(status) {
 			console.log(status);
-			this.search = '';
+			// this.search = '';
 			if(status) {
 				this.filterData = this.data.filter((item) => {
 				return item['Status'] == status;
@@ -37,7 +37,7 @@ const app = Vue.createApp({
 				this.filterData = this.data;
 			}
 		},
-		
+
 		searchFood(search) {
 			console.log(search);
 			if(search) {
@@ -47,6 +47,14 @@ const app = Vue.createApp({
 			} else {
 				this.filterData = this.data;
 			}
+		},
+
+		searchBEFood(search) {
+			console.log(search);
+			axios.post('./api.php', {method: 'filterData', filter: search}).then((response) => {
+				this.data = response.data;
+				this.filterData = response.data;
+			});
 		}
 	}
 })
