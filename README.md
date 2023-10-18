@@ -2,9 +2,13 @@
 Get Foods you like
 # Nodejs code
 
+# nvm 
+
 # Vue
 
 # how to run it
+ - nvm install v18.17.0
+ - nvm use v18.17.0
  - git clone git@github.com:frankmaster/foods.git
  - git checkout nodejs
  - npm install
