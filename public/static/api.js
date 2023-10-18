@@ -11,13 +11,13 @@ const app = Vue.createApp({
 	},
 	methods: {
 		initData() {
-			axios.post('./api.php', {method: 'Status'}).then((response) => {
+			axios.post('./api', {method: 'Status'}).then((response) => {
 				this.statuses = response.data;
 			});
-			axios.post('./api.php', {method: 'header'}).then((response) => {
+			axios.post('./api', {method: 'header'}).then((response) => {
 				this.tableTitle = response.data;
 				// console.log(this.tableTitle);
-				return axios.post('./api.php', {method: 'allData'});
+				return axios.post('./api', {method: 'allData'});
 			}).then((response) => {
 				this.data = response.data;
 				this.filterData = response.data;
@@ -51,7 +51,7 @@ const app = Vue.createApp({
 
 		searchBEFood(search) {
 			console.log(search);
-			axios.post('./api.php', {method: 'filterData', filter: search}).then((response) => {
+			axios.post('./api', {method: 'filterData', filter: search}).then((response) => {
 				this.data = response.data;
 				this.filterData = response.data;
 			});

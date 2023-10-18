@@ -1,0 +1,20 @@
+{
+  "name": "foods",
+  "version": "1.0.0",
+  "description": "foods test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "foods",
+    "test"
+  ],
+  "author": "Frank Fu",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "express": "^4.18.2"
+  }
+}
